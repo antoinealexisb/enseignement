@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title> test tableau </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+	<meta name="keywords" content="HTML">
+	<meta name="autor" content="Antoine-Alexis Bourdon">
+</head>
+
+ <body>
+ 
+ 
+ <!-- Table de vérité .. -->
+	<center>
+	<table border="5px">
+	<caption>Table de vérité du OU exclusif</caption>
+	<thead>
+		<tr>
+			<th scope="col">A</th>
+			<th scope="col">B</th>
+			<th scope="col">A XOR B</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>VRAI</td>
+			<td>VRAI</td>
+			<td>FAUX</td>
+		</tr>
+		<tr>
+			<td>VRAI</td>
+			<td>FAUX</td>
+			<td>VRAI</td>
+		</tr>
+		<tr>
+			<td>FAUX</td>
+			<td>VRAI</td>
+			<td>VRAI</td>
+		</tr>
+		<tr>
+			<td>FAUX</td>
+			<td>FAUX</td>
+			<td>FAUX</td>
+		</tr>
+	</tbody>
+	</table>
+	
+	<br/>
+	
+	
+	<!-- table de multiplication -->
+	<table border="5px">
+	<caption>Table de multiplication</caption>
+		<thead>
+		<tr>
+			<th scope="col">X</th>
+			<th scope="col">1</th>
+			<th scope="col">2</th>
+			<th scope="col">3</th>
+			<th scope="col">4</th>
+			<th scope="col">5</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<th scope="row">1</th>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<th scope="row">2</th>
+			<td>2</td>
+			<td>4</td>
+			<td>6</td>
+			<td>8</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<th scope="row">3</th>
+			<td>3</td>
+			<td>6</td>
+			<td>9</td>
+			<td>12</td>
+			<td>15</td>
+		</tr>
+		<tr>
+			<th scope="row">4</th>
+			<td>4</td>
+			<td>8</td>
+			<td>12</td>
+			<td>16</td>
+			<td>20</td>
+		</tr>
+		<tr>
+			<th scope="row">5</th>
+			<td>5</td>
+			<td>10</td>
+			<td>15</td>
+			<td>20</td>
+			<td>25</td>
+		</tr>
+		</tbody>
+	</table>
+	
+	<br/>
+	
+	
+	<!-- table de population Benelux -->
+	<table border="5px">
+	<caption>La population du Benelux</caption>
+		<thead>
+		<tr>
+			<th scope="col">Pays</th>
+			<th scope="col">Population</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>Belgique</td>
+			<td>11.071.483</td>
+		</tr>
+		<tr>
+			<td>Pays-Bas</td>
+			<td>16.847.007</td>
+		</tr>
+		<tr>
+			<td>Luxembourg</td>
+			<td>503.302</td>
+		</tr>
+		</tbody>
+		<tfoot>
+		<tr>
+			<th>Total</th>
+			<td>28.421.792</td>
+		</tr>
+		</tfoot>
+		</table>
+	
+	<br/>
+	
+	
+	<!-- table des nombres -->
+	<table border="5px">
+		<caption>Les nombres</caption>
+		<thead>
+		<tr>
+			<th colspan="3">Nombres de 1 à 3</th>
+		</tr>
+		</thead>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<th colspan="3">Nombres de 4 à 6</th>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+		</tr>
+		</thead>
+	</table>
+	
+	<br/>
+	
+	
+	
+	<!-- table de notes -->
+	<table border="5px">
+		<caption>Les notes</caption>
+			<thead>
+				<tr>
+					<th>  </th>
+					<th>CC</th>
+					<th>TP</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th rowspan="2">notes</th>
+					<td>10</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>13</td>
+				</tr>
+				<tr>
+					<th>moy</th>
+					<td>9</td>
+					<td>14</td>
+				</tr>
+			</tbody>
+	</table>
+	
+	<br/>
+	
+	
+	<!-- table de vente chausettes -->
+	<table border="5px">
+		<caption>La vente de chaussettes</caption>
+		<thead>
+			<tr>
+				<th rowspan="2">Ventes de chaussettes</th>
+				<th colspan="2">année 2020/21</th>
+			</tr>
+			<tr>
+				<th>Printemps-Eté</th>
+				<th>Automne-Hiver</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Rouges :</th>
+				<td>55</td>
+				<td>310</td>
+			</tr>
+			<tr>
+				<th>Vertes :</th>
+				<td>250</td>
+				<td>540</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br/>
+	
+	
+	
+	<!-- table affluence clubs foot -->
+	<table border="5px">
+		<caption>Tableau de l'affluence moyenne des clubs de football les plus importants de la région NPDCP.</caption>
+		<thead>
+			<tr>
+				<th>Club</th>
+				<th>Année</th>
+				<th>Affluence moyenne</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th rowspan="2">Lens</th>
+				<td>2014-2015</td>
+				<td>17205</td>
+			</tr>
+			<tr>
+				<td>2013-2014</td>
+				<td>31016</td>
+			</tr>
+			<tr>
+				<th rowspan="2">Lille</th>
+				<td>2014-2015</td>
+				<td>36547</td>
+			</tr>
+			<tr>
+				<td>2013-2014</td>
+				<td>38662</td>
+			</tr>
+						<tr>
+				<th rowspan="2">Valenciennes</th>
+				<td>2014-2015</td>
+				<td>8127</td>
+			</tr>
+			<tr>
+				<td>2013-2014</td>
+				<td>14354</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>Club</th>
+				<th>Année</th>
+				<th>Affluence moyenne</th>
+			</tr>
+		</tfoot>
+	</table>
+	
+	
+	
+	<!-- table diabolique -->
+	<table border="5px">
+		<caption>Tableau diabolique.</caption>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td rowspan="2">4</td>
+			</tr>
+			<tr>
+				<td rowspan="2">2</td>
+			</tr>
+			<tr>
+				<td rowspan="2">5</td>
+			</tr>
+			<tr>
+				<td>3</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<!-- taleau extrement diabolique -->
+	<table border="5px">
+		<caption>Tableau piégé</caption>
+		<thead>
+			<tr>
+				<th colspan="9">titre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="4">côté gauche</td>
+				<td rowspan="2">1</td>
+				<td colspan="2">a</td>
+				<td colspan="2">b</td>
+				<td colspan="2">c</td>
+				<td rowspan="4">côté droit</td>
+			</tr>
+			<tr>
+				<td>d</td>
+				<td>e</td>
+				<td>f</td>
+				<td>g</td>
+				<td>h</td>
+				<td>i</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td rowspan="2" colspan="3">gauche</td>
+				<td rowspan="2" colspan="3">droite</td>
+			</tr>
+			<tr>
+				<td>3</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="9">bas de tableau</th>
+			</tr>
+		</tfoot>
+	</table>
+	
+	
+	
+</center>
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+thead, tfoot{
+	background-image:url("sky.jpg");
+}
+
+thead th, tfoot th{
+	font-family:times new roman, sans-serif;
+	font-weight:bold;
+	text-align:center;
+}
+
+tbody th{
+	font-family:times new roman, sans-serif;
+	font-weight:bold;
+	text-align:center;
+	background-color:LIGHTBLUE;
+}
+
+tbody td{
+	background-color:WHITE;
+	font-family:arial;
+	font-size:80%;
+	text-align:left;
+}
+
+td, th{
+	border-style:solid;
+	border-color:CYAN;
+	border-width:1px;
+	border-collapse:collapse;
+	width:25%;
+	padding:4pt;
+}
+
+table{
+	border-style:solid;
+	border-color:BLUE;
+	border-width:2pt;
+	border-collapse:collapse;
+	margin: auto;
+	width:75%;
+	caption-side:bottom;
+}
+
+table caption{
+	font-family:arial;
+	font-size:13px;
+	margin:auto;
+	
+}
+
+tbody td:hover{
+	background-color:LIGHTGREEN;
+}

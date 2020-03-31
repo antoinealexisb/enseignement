@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM O mon Bateau </title>
+        <link rel="stylesheet" type="text/css" href="style.css" >
+    </head>
+    <body>
+    <h1 id="first">
+        Document Object Model
+    </h1>
+    <p>
+    Le Document Object Model (ou DOM1,2) est un standard du W3C qui décrit une interface indépendante de tout langage de programmation et de toute plate-forme, permettant à des programmes informatiques et à des scripts d'accéder ou de mettre à jour le contenu, la structure ou le style de documents HTML3 et XML4. Le document peut ensuite être traité et les résultats de ces traitements peuvent être réincorporés dans le document tel qu'il sera présenté.
+    </p>
+    <nav>
+        Sommaire
+    <ol>
+        <li><a href="#test"> 1 Évolution du DOM au sein des navigateurs web </a></li>
+        <ol>
+            <li><a href="#dom1">  DOM 1 </a></li>
+            <li><a href="#dom2"> DOM 2 </a></li>
+            <li><a href="#dom34"> DOM 3 et 4</a></li>
+        </ol>
+        <li><a href="#AT"> Aspects techniques</a></li>
+        <li> Événements </li>
+        <li> Notes et Références</li>
+        <li><a href="#lien"> Liens externes</a></li>
+    </nav>
+
+    <h1 id="test"> Évolution du DOM au sein des navigateurs web</h1>
+    <p>
+Avant sa standardisation par le W3C, chaque navigateur web disposait de son propre Document Object Model. Si le langage de base destiné à manipuler les documents web a vite été standardisé autour de JavaScript, il n'en a pas été de même pour la série précise de fonctions à utiliser et la manière de parcourir le document. Par exemple, lorsque Netscape Navigator préconisait de parcourir un tableau indexé nommé document.layers[], Internet Explorer l'appelait plutôt document.all[], et ainsi de suite. En pratique, cela obligeait à écrire (au moins) deux versions de chaque morceau de script si l'on voulait rendre son site accessible au plus grand nombre.
+    </p>
+    <p> 
+    La standardisation de ces techniques s'est faite en plusieurs étapes, lesquelles étendent chaque fois les possibilités précédentes sans jamais les remettre en cause.
+    </p>
+    <h2 id="dom1"> DOM 1 </h2>
+    <p>La première est le DOM Level 1 publié en 1998 (le niveau 0 étant considéré comme l'implémentation de base figurant dans Netscape Navigator 2.0), où le W3C a défini une manière précise de représenter un document (en particulier un document XML) sous la forme d'un arbre. Chaque élément généré à partir du balisage comme, dans le cas de HTML, un paragraphe, un titre ou un bouton de formulaire, y forme un nœud. Est également définie une série de fonctions permettant de se déplacer dans cet arbre, d'y ajouter, modifier ou supprimer des éléments. En plus des fonctions génériques applicables à tout document structuré, des fonctions particulières ont été définies pour les documents HTML, permettant par exemple la gestion des formulaires. Le DOM Level 1 a été disponible dans sa plus grande partie dès les premières versions d'Internet Explorer 5 et de Netscape 6.
+    </P>
+    <h2 id="dom2">DOM 2</h2>
+    <p>La seconde étape est le DOM Level 2 (publié en 2000), à présent constitué de six parties (en plus de Core et HTML, on trouvera Events, Style, View et Traversal and Range). Dans les évolutions de la brique de base (Core), on notera la possibilité d'identifier plus rapidement un nœud ou un groupe de nœuds au sein du document. Ainsi, pour obtenir un élément particulier on ne le recherchera plus dans un tableau comme dans les DOM propriétaires précédents, mais on appellera la fonction getElementById().
+    </p>
+    <h2 id="dom34">DOM 3 et 4</h2>
+    <p>Le troisième niveau, publié au printemps 20045, a ajouté le support de XPath, la gestion d'événements clavier, et une interface de sérialisation de documents XML. Le quatrième niveau est en cours de développement, le Last Call Working Draft ayant été diffusé en février 20146.
+    </p>
+    <h3 id="AT">Aspects techniques</h3>
+    <p>DOM permet de construire une arborescence de la structure d'un document et de ses éléments. Il est donc préférable de parcourir et de mémoriser l'intégralité du document avant de pouvoir effectuer les traitements voulus. Pour cette raison, les programmes utilisant DOM ont souvent une empreinte mémoire volumineuse en cours de traitement. À l'inverse, à partir d'un arbre DOM donné, il est possible de générer des documents dans le langage de balisage voulu, qui pourront à leur tour être manipulés par l'interface DOM.
+    </p>
+    <p>DOM est utilisé pour pouvoir modifier facilement des documents XML ou accéder au contenu des pages web. Dans les cas ne nécessitant pas de manipuler les documents XML, mais juste de les lire, la méthode SAX peut également être choisie car elle traite les éléments de façon successive sans charger le document en mémoire. Elle s'impose quand la taille du document excède la capacité de la mémoire.
+    </p>
+    </body>
+    <footer>
+    <h3 id="lien"> Lien externe </h3>
+    <p>Source du texte :<a href= https://fr.wikipedia.org/wiki/Document_Object_Model</a">WIKIpilole</a></p>
+    </footer>
+    <script src="tp5_java.js">
+    </script>
+</html>

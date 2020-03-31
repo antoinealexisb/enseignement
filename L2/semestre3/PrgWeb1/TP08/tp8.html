@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>Pour le papa noël</title>
+		<script type="text/javascript" src="tp8.js"></script>
+	</head>
+	<body>
+		<h2><center>Bienvenue sur le futur site du papa noel</center></h2>
+		
+		<form id="creer_cadeau">
+			<h3>Creer joujou</h3>
+			<input type="text" placeholder="Nom de l'article" id="nom"><br>
+			<input type="text" placeholder="Poids en gramme" id="poids"><br>
+			<input type="text" placeholder="Prix en €" id="prix"><br>
+			<input type="text" placeholder="volume en m3" id="cube"><br>
+			<input type="text" placeholder="Destinataire" id="dest"><br>
+			
+			<input type="button" value="Envoyez" id="button_creer_cadeau" onclick=creer_cadeau_papa();>
+		
+		</form>
+		<p>
+		Jouets en vrac pas dans la hotte (pour indication): <input type="button" value="rafraichir" onclick="jouets_vrac()"><br>
+		<div id="jouets_vrac">
+		</div>
+		<p>
+		
+		<form id="ajouter_hotte">
+			<h3>ajouter joujou dans hotte de papa noel</h3><br>
+			<select id="ajouter_joujou">
+			</select>
+			
+			<input type="button" value="Envoyez" id="ajouter_jj_hotte" onclick=danshotte();>
+		
+		</form>
+		
+		
+		
+	<script>
+		var global = 0;
+		var tab_cadeau=[];
+		function creer_cadeau_papa(){
+			//cadeau[global]= "cadeau"+global;
+			tab_cadeau[global]=new Joujou(document.getElementById('nom').value,document.getElementById('poids').value,document.getElementById('prix').value,document.getElementById('cube').value,document.getElementById('dest').value);
+			global++;
+			
+		}
+		function jouets_vrac(){
+			res = "";
+			document.getElementById('jouets_vrac').innerHTML="";
+			for (var i=0; i<tab_cadeau.length; i++){
+				res+=tab_cadeau[i].toString()+"<br>";
+			}
+			document.getElementById('jouets_vrac').innerHTML = res;
+		//}
+		//function danshotte(){
+			for (var i=0; i<tab_cadeau.length;i++){
+				document.getElementById("ajouter_joujou").options[i] = new Option(tab_cadeau[i].nom, tab_cadeau[i]); 
+			}
+		}
+	</script>
+	</body>
+</html>

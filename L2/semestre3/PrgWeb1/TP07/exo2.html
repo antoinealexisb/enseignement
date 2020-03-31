@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+		<title>Citronault 325</title>
+		<link href="" rel="stylesheet" type="text/css" media="screen">
+		<script type="text/javascript" src="exo2.js"></script>
+	</head>
+	
+	<body>
+	
+		<form id="e">
+			<h1><font color="blue">Citronault 325</font></h1>
+				<p> Votre voiture à la carte </p>
+				
+				<hr>
+				
+				<h2> Motorisation</h2>
+					<select id="liste">
+						<option value="0"> essence 1.2</option>
+						<option value="2000"> essence 1.6 (+2000€)</option>
+						<option value="3000"> DCI (+3000€)</option>
+					</select>
+					
+				<h2> Type de voiture </h2>
+					<input type="radio" name="porte" value="0" checked="checked">3 portes</input> <!-- elements[1] du formulaire -->
+					<input type="radio" name="porte" value="1000">5 portes (+1000€)</input> <!-- elements[2] du formulaire -->
+					
+				<h2>Options</h2>
+					<input type="checkbox" name="checkbox" value="2000"> climatisation(+2000€) </input> <!-- elements[3] du formulaire -->
+					<br>
+					<input type="checkbox" name="checkbox" value="300"> peinture(+300€) </input>
+					<br>
+					<input type="checkbox" name="checkbox" value="100"> auto-radio CD(+100€) </input>
+					
+				<br><center><input type = "button" value="valider" id="bouton"></center>
+				
+				<hr>
+				
+				<p id="res"></p>
+		</form>
+	</body>
+</html>

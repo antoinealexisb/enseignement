@@ -1,0 +1,65 @@
+EXERCICE 1:
+
+1) UPDATE produit SET coulprod = 'VIOLET' where coulprod = 'NOIR';
+
+2) UPDATE produit SET coulprod = 'INCONNUE' where coulprod is null;
+
+3) UPDATE achat SET date_cmd = DATETIME(date_cmd,'+2 days') where date_cmd like '2009-09%';
+
+4) UPDATE produit SET qstock=qstock-50 where libprod = 'AGENDA';
+
+5)UPDATE produit set qstock=qstock*2 where coulprod="ROUGE";
+UPDATE produit SET qstock=qstock*3 where coulprod = 'VERT';
+
+6) UPDATE client SET nomcl = 'JACOB-Lens',codepostal = 62300 where nomcl = 'JACOB';
+
+7) UPDATE client SET nomcl = nomcl || '-Lille' where codepostal like '59%';
+
+8) insert into client(numcl, nomcl, codepostal) values( 1+ (select max(numcl) from client), 'BARACODA', 62300);
+
+9) DELETE from achat where date_cmd LIKE '2010-01%';
+
+10) DELETE from produit where coulprod="VIOLET";
+
+
+EXERCICE 2:
+
+1)
+begin TRANSACTION;
+insert into City(Name,CountryCode,District,Population) values ('Ushuaïa','ARG','Ushuaïa',56825);
+update Country set Population = Population + (select Population from City where Name = 'Ushuaïa') where Name = 'Argentina';
+COMMIT;
+
+2)
+BEGIN TRANSACTION;
+update Country set Population = Population - (select Population from City where Name = 'Ushuaïa') where Name = 'Argentina'; 
+DELETE from City where Name = 'Ushuaïa';
+COMMIT;
+
+3)
+BEGIN TRANSACTION;
+update City set Population = Population + 10000 where Name = 'Santa Clara';
+update Country set Population = Population + 10000 where Code in(select CountryCode from City where Name LIKE 'Santa Clara');
+COMMIT;
+
+4) 
+create trigger add_city
+after insert on City 
+begin
+update Country set Population = Population + new.Population where Code = new.CountryCode;
+end;
+
+5)
+create trigger delete_city
+after delete on City
+begin
+update Country set Population = Population - old.Population where Code = old.CountryCode;
+end;
+
+6)
+create trigger update_city 
+before update of Population on City 
+begin
+update Country set Population = Population + (new.Population - old.Population) where Code = new.CountryCode and new.Population > old.Population;
+update Country set Population = Population - (old.Population - new.Population) where Code = new.CountryCode and new.Population < old.Population;
+end;

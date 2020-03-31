@@ -1,0 +1,18 @@
+--Exercice 1
+create table Produit(fabr char(1), modele int  primary key, type varchar(30));
+
+create table PC(modele int primary key, vitesse float check (vitesse>=0), ram int check (ram>=0), hd int check (hd>=0), prix float check(prix>=0),
+constraint modele_fk foreign key(modele) references Produit(modele));
+
+create table Portable(modele int primary key references Produit(modele), vitesse float check (vitesse>=0), ram int check (ram>=0), hd int check (hd>=0), ecran float check (ecran>=0), prix float check(prix>=0));
+
+create table Imprimante(modele int primary key references Produit(modele), couleur boolean check (couleur in ('true','false')), type varchar(30), prix float check (prix>=0));
+
+--Exercice 2
+insert into Produit(fabr,modele,type) values ('A',1001,'pc'),('A',1002,'pc'),('A',1003,'pc'),('A',2004,'portable'),('A',2005,'portable'),('A',2006,'portable'),('B',1004,'pc'),('B',1005,'pc'),('B',1006,'pc'),('B',2007,'portable'),('C',1007,'pc'),('D',1008,'pc'),('D',1009,'pc'),('D',1010,'pc'),('D',3004,'imprimante'),('D',3005,'imprimante');
+
+insert into PC(modele,vitesse,ram,hd,prix) values (1001,2.66,1024,250,2114),(1002,2.10,512,250,995),(1003,1.42,512,80,478),(1004,2.80,1024,250,649),(1005,3.20,512,250,630),(1006,3.20,1024,320,1049),(1007,2.20,1024,200,510),(1008,2.20,2048,250,770),(1009,2.00,1024,250,650),(1010,2.80,2048,300,770);
+
+insert into Portable(modele,vitesse,ram,hd,ecran,prix) values (2004,2.00,512,60,13.3,1150),(2005,2.16,1024,120,17.0,2500),(2006,2.00,2048,80,15.4,1700),(2007,1.83,1024,120,13.3,1429);
+
+insert into Imprimante(modele,couleur,type,prix) values (3004,'true','ink_jet',120),(3005,'false','laser',120);

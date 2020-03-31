@@ -1,0 +1,42 @@
+--Exercice 3
+create table auteur(id_auteur int primary key check (id_auteur>=0), nom_auteur varchar(20), prenom_auteur varchar(20));
+
+create table oeuvre(id_oeuvre int primary key check (id_oeuvre>=0), titre_oeuvre varchar (20));
+
+create table oeuvreauteur(id_oeuvre int references oeuvre(id_oeuvre) check (id_oeuvre>=0), id_auteur int references auteur(id_auteur) check (id_auteur>=0),
+constraint oeuvreauteur_fk primary key (id_auteur,id_oeuvre));
+
+create table adherant(id_adherant int primary key check (id_adherant>=0), nom_adherant varchar(20), prenom_adherant varchar(20));
+
+create table livre(id_livre int primary key check (id_livre>=0), id_oeuvre int references oeuvre(id_oeuvre) check (id_oeuvre>=0));
+
+create table emprunt(id_emprunt int primary key check (id_emprunt>=0), id_adherant int references adherant(id_adherant) check (id_adherant>=0), id_livre int references livre(id_livre) check (id_livre>=0), date_emprunt date, date_retour_prev date);
+
+--Exercice 4
+insert into adherant(id_adherant,nom_adherant,prenom_adherant) values
+(1001,"Connor","Sarah"),(1002,"Ripley","Ellen"),(1003,"Anderson","Thomas");
+
+insert into oeuvre(id_oeuvre,titre_oeuvre) values (3001,"Foundation"),(3002,"I Robot"),(3003,"Paycheck"),(3004,"Frankeinstein");
+
+insert into livre(id_livre,id_oeuvre) values (2001,3001),(2002,3002),(2003,3003),(2004,3004);
+
+insert into auteur(id_auteur,nom_auteur,prenom_auteur) values (4001,"Isaac","Asimov"),(4002,"Philip","K. Dick"),(4003,"Mary","Shelley");
+
+insert into oeuvreauteur(id_oeuvre,id_auteur) values (3001,4001),(3002,4001),(3003,4002),(3004,4003);
+
+insert into emprunt(id_emprunt,id_adherant,id_livre,date_emprunt,date_retour_prev) values (5001,1003,2003,'2016-01-10','2016-01-24'),(5002,1002,2003,'2015-12-12','2015-12-26'),(5003,1002,2001,'2016-01-11','2016-01-25'),(5004,1001,2003,'2016-01-20','2016-02-03');
+
+UPDATE emprunt
+SET date_emprunt = '2016-02-02', date_retour_prev = '2016-02-16'
+WHERE id_emprunt = 5004;
+
+create table histoemprunt(id_histo int primary key check (id_histo > 0), id_adherant int references adherant(id_adherant), id_livre int references livre(id_livre), date_emprunt date, date_retour date);
+
+--on suppose qu'on est le 2016-02-02
+
+insert into histoemprunt 
+SELECT * FROM emprunt 
+WHERE date_retour_prev < '2016-02-02';
+
+DELETE FROM emprunt 
+WHERE date_retour_prev < '2016-02-02';

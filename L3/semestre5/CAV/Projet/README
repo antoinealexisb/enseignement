@@ -1,0 +1,126 @@
+Bienvenue dans le readme du Projet de CAV de BOURDON Antoine-Alexis et DEVRAINNE Anthony
+
+Nous avons fait un MAKEFILE afin de faciliter la compilation du projet, et
+voici ce qu’il faut taper pour lancer les différentes parties :
+
+make : Permet de compiler le Projet.
+make clean : Permet d'effacer tous les executables (ceux du ./bin/ et ./Projet ).
+make launch : lance le programme déjà compilé sans possibilités d'inclure des fichiers en .strat en argument.
+make claunch : compile et lance le programme sans possibilités d'inclure des fichiers en .strat en argument.
+
+
+
+Notre programme s'appelle de la maniere suivante dans un invité de commande:
+./Projet ou make launch
+./Projet fichier1.strat ...
+
+Les fonctions qu'admet notre programme sont (Partie 1):
+	L'affichage des différents tableaux avec les commandes show ....
+	L'initialisation, la création et l'affichage de ces différents tableaux (armes, soins, champions, protections)
+	La création d'équipe contenant les attributs necessaires au duel et à la victoire de la guerre.
+	L'achat de CA pour les equipes.
+	L'état de l'adversaire pendant le duel (points de vie afficher).
+	L'état des finances des equipes
+	Un historique des commandes pour chaque equipe.
+	Des fonctions pour ecrire avec des couleurs.
+	Des fonctions pour afficher des animations en ASCII ART.
+	Une fonction pour afficher les erreurs en fonction d'un code de Retour d'autres fonctions.
+	Une fonction pour afficher le terrain et la distance entre les deux adversaires.
+	Des fonctions associées aux commandes durant le duel (show, move forward n, move backward n, use care n, use weapon n, use protection(utilisable une seule fois par duel), end)
+	Des fonctions pour free les différents tableaux.
+	Une commande system pour avoir une console en 87x32. (la commande peu ne pas fonctionner si le terminal possède des plugins en plus, comme pour Terminator, Tmux.)
+
+Les fonctions qu'admet notre programme sont (Partie 2):
+	Des fonctions pour vérifier si les fichiers en arguments (*.strat) sont valides.
+	La création d'un tableau de stratégies.
+	L'affichage de ce tableau (show strategies) et d'une description d'une stratégie précise (show strategy 2)
+	
+
+Attention si la commande system pour avoir une console en 87x32 ne fonctionne pas, merci de bien vouloir mettre votre console en 87x32.
+	
+
+
+guide d'utilisation sans arguments:
+> ./Projet
+Au lancement du jeu vous aurez le droit à un message "ITS TIME TO KILL EVERYONE" puis aux deux tableaux de champions  
+
+ #######################################################################
+#                        EQUIPE FRUITABLE                               #
+#_______________________________________________________________________#
+#|   NOM       |   TYPE   |   FORCE    |    RES    |    PV    |    CE  |#
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx#
+#   Haricobail |   legume |        10  |       10  |      40  |      5 |#
+#   Feblouille |   legume |         5  |        5  |      50  |      5 |#
+#    Poireauto |   legume |        20  |       20  |      60  |     15 |#
+# Auberginette |   legume |         5  |       10  |      85  |     15 |#
+#   Carrotrock |   legume |        25  |       25  |      80  |     25 |#
+#        C-800 |   legume |        35  |       35  |      60  |     25 |#
+ #######################################################################
+
+ #######################################################################
+#                        EQUIPE VEGETABLE                               #
+#_______________________________________________________________________#
+#|   NOM       |   TYPE   |   FORCE    |    RES    |    PV    |    CE  |#
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx#
+#     Citronaw |   fruit  |        30  |        5  |      25  |      5 |#
+#     Fraimler |   fruit  |         5  |        5  |      50  |      5 |#
+#     Melonade |   fruit  |        20  |       20  |      60  |     15 |#
+#    El Papaya |   fruit  |        10  |       10  |      80  |     15 |#
+#  Darth Presk |   fruit  |        25  |       25  |      80  |     25 |#
+#   Coco Bongo |   fruit  |        35  |       35  |      60  |     25 |#
+ #######################################################################
+
+
+
+Vous pouvez afficher une liste de stratégies déjà existante.
+> show strategies
+#######################
+# 1 | nom: Exemple #
+# 2 | nom: Bouftou #
+# 3 | nom: Exemple #
+# 4 | nom: Dash #
+
+
+Avoir une description d'une stratégie.
+>show strategy 2
+#########################
+## Stratégie : Bouftou ##
+## Arme : Mandoline Sonique ##
+## Protection : Tablier-Armure ##
+## Soin : Rambo ##
+## CA supplémentaires : 10 ##
+## cout de la stratégie en CE : 25 
+
+
+les tableaux sont considérés comme deux entités différentes, les deux tableaux de champions vont de l'indice 1 à 6 (inclus).
+> show vegetable 1
+renvoi : legume | Nom:Haricobail | Force:10 | Resistance:10 | Pv:40 | Cout:5 
+
+et
+
+> show fruit 1
+renvoi : fruit  | Nom:Citronaw | Force:30 | Resistance:5 | Pv:25 | Cout:5
+
+
+Pour lancer un combat entre par exemple "Haricobail" et "Citronaw" :
+> fight 1 versus 1
+
+À chaque étape pour choisir un équipement pour composer notre équipe, des messages de confirmation apparaîtra pour être sûr que l'utilisateur soit d'accord avec son choix; si celui-ci n'a pas assez de crédit un message lui indique qu'il est impossible d'équiper cela. Et lui demande de choisir autre chose. Si l'utilisateur refuse (pour la protection, soin) alors l'équipe reçoit un équipement ne pouvant pas l'aider pendant le combat(Rambo pour la protection et Vanilla pour le soin).
+
+
+À la fin du choix de ses équipements le joueur peut acheter des CA en fonction de ses CE restants.
+Puis une fois cette dernière étape effectuée, un récapitulatif de son équipe est affichée (son champion, son arme, son soin, sa protection) pendant quelques secondes.
+
+Puis pour la partie duel. Ici les adversaires utilisent les commandes du duel (show, move forward n, move backward n, use care n, use weapon n, use protection(utilisable une seule fois par duel), end).
+À la fin du duel si le légume gagne il est afficher "YOU WIN" si c'est le fruit "GAME OVER", mais en aucun cas la guerre est finie sauf s'il n'y a plus assez de CE pour jouer.
+
+
+Mais vous pouvez aussi choisir de démarrer le combat avec une stratégie. (Ici le fruit possède la stratégie 1 et le légume aucune).
+>fight 1 1 versus 1
+Mais vous pouvez aussi choisir de démarrer le combat avec chacune des equipes possèdant une stratégie. (Ici le fruit possède la stratégie 3 et le legume possède la même stratégie. La stratégie peut ne pas être la même).
+>fight 1 3 versus 1 3
+
+À la fin de la guerre il est affiché soit "VAINQUEUR FRUITS", "VAINQUEUR LEGUMES"ou "EX-AEQUO" et le jeu se termine.
+
+
+

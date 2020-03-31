@@ -1,0 +1,142 @@
+Bienvenue sur tableur !!!!
+
+Plus particulièrement bienvenue dans le readme concernant le Projet de shell. 
+Le projet est de réaliser en shell (/bin/sh) ou (/bin/bash) un mini tableur.
+Ce projet est né par BOURDON Antoine-Alexis et DEVRAINE Anthony.
+
+Avant tout :
+	- Pour utiliser le tableur, il vous est conseillé de donner les droits d'éxécution au fichier tableur.sh avec la commande "chmod +x tableur.sh" dans un terminal linux.
+	- Pour avoir un exemple de ce que fait notre tableur vous pouvez dans un terminal linux faire :
+		- ./tableur.sh -in feuille
+		- ./tableur.sh -in feuille2 -scin ":"
+		- ./tableur.sh -in feuille3 -scin ":"
+		- ./tableur.sh -in feuille4
+		- ./tableur.sh -in feuille5 -scin ":"
+
+
+
+OPTIONS:
+
+Maintenant que vous voyez ce que peut faire le tableur, nous allons vous énoncer ses différentes options et à quoi elles servent :
+
+La syntaxe de la commande est :
+./tableur.sh [-in feuille] [-out résultat] [-scin sep] [-scout sep] [-slin sep] [-slout sep] [-inverse]
+
+	-in fichier : permet d’indiquer dans quel fichier (feuille) se trouve la feuille de calculs. Si cette option n’est pas spécifiée sur la ligne de commande, la feuille de calculs sera lue depuis l’entrée standard ;
+
+        -out fichier : permet d’indiquer dans quel fichier (fichier) doit être écrite la feuille calculée. Si cette option n’est pas spécifiée, le résultat sera affiché sur la sortie standard ;
+
+        -scin caractere : permet de spécifier le séparateur (caractere) de colonnes de la feuille de calculs initiale. Par défaut si cette option n’est pas spécifiée, ce séparateur est la tabulation ;
+
+        -scout caractere : permet de spécifier le séparateur (caractere) de colonnes de la feuille calculée. Par défaut si cette option n’est pas spécifiée, ce séparateur est identique au séparateur de colonnes de la feuille de calculs initiale ;
+
+        -slin caractere : permet de spécifier le séparateur (caractere) de lignes de la feuille de calculs initiale. Par défaut si cette option n’est pas spécifiée, ce séparateur est le retour chariot ;
+
+        -slout caractere : permet de spécifier le séparateur (caractere) de lignes de la feuille calculée. Par défaut si cette option n’est pas spécifiée, ce séparateur est identique au séparateur de lignes de la feuille de calculs initiale ;
+
+        -inverse : permet d'inverser lignes/colonnes;
+
+
+	Remarques :
+		- L'odre d'apparition des options n'est pas important.
+                - Pour la spécification des séparateurs il est conseillé de les protéger avec des guillemets ou des quotes. :: ./tableur.sh -in pokemon –out sortiepokemon –scin '|' -slin ";"
+
+
+
+
+
+
+LES FICHIERS (les feuilles):
+Les feuilles de calculs sont des fichiers texte (lisible et clair). Il est donc facile de créer ses propres feuilles de calculs.
+
+
+
+	FORMAT DES FEUILLES:
+		- Pour identifier une cellule dans le fichier nous utilisons le format lxcy, ou l signifie que le prochain nombre correspond à la ligne. Et c correspond de la même façon a la colonne.
+		- Toutes les cellules qui ne commencent pas par le caractère = seront considérées comme une cellule avec du texte.
+		- Donc une cellule avec un = au début sera considérée comme un calcul à interpreter.
+		- Vous pouvez écrire vos feuilles de calcul au clavier dans le terminal. Une fois celle-ci faites il faudra appuyer sur Ctrl+d pour lire cette feuille.
+
+
+
+	FONCTIONS DES FEUILLES:
+	Comme tout tableur, il est possible d'indiquer dans des cellules des formules de calcul.
+	Voici les fonctions qu'admet notre tableur :
+		– [cel]:permet d’obtenir la valeur de la cellule cel
+		– +(val1,val2):somme de val1 et val2. Possibilité de mettre une cellule mais sous la forme [cel] pour obtenir sa valeur.
+		– -(val1,val2):différence entre val1 et val2.
+		– *(val1,val2):produit de val1 et val2.
+		– /(val1,val2):quotient de va1 et val2.
+		– ^(val1,val2):élève val1 à la puissance val2.
+		– ln(val1):calcule le logarithme népérien de val1.
+		– e(x):calcule l’exponentielle de x
+		– sqrt(x):calcule la racine carrée de x
+		– somme(cel1,cel2):calcule la somme des cellules appartenant à l’intervalle de cel1 à cel2
+		– moyenne(cel1,cel2):calcule la moyenne des cellules appartenant à l’intervalle de cel1 à cel2
+		– variance(cel1,cel2):calcule la variance des cellules appartenant à l’intervalle de cel1à  cel2
+		– ecarttype(cel1,cel2):calcule l’écart type des cellules appartenant à l’intervalle de cel1 à cel2
+		– mediane(cel1,cel2):calcule la valeur médiane des cellules appartenant à l’intervalle de cel1 à cel2
+		– min(cel1,cel2):fournit la plus petite valeur des cellules de l’intervalle de cel1 à cel2
+		– max(cel1,cel2):fournit la plus grande valeur des cellules de l’intervalle de cel1 à cel2
+		– concat(x,y):effectue la concaténation des deux chaînes de caractères x et y
+		–length(x):fournit la longueur de la chaîne de caractères x
+		– subsitute(x,y,z):remplace dans la chaîne de caractères x, la chaîne y par z 
+		– size(val):récupère la taille du fichier identifié par val
+		– lines(val):récupère le nombre de lignes du fichier identifié par val
+		– shell(val):remplace le contenu de la cellule par le résultat de la commande val 
+		– display(cel1,cel2):permet de spécifier un ensemble de cellules à afficher
+		– cos(val1):calcule le cosinus de val1 (val1 est en radian)
+		– sin(val1):calcule le sinus de val1 (val1 est en radian)
+
+
+PROGRAMME:
+	Au démarrage du tableur, celui-ci commence par vérifier les différents paramètres lors de l'appel (./tableur.sh -in .. -out ...) et affiche des erreurs si nécessaire.
+	Ensuite vérifie si la feuille n'est pas vide, si vide affiche une erreur (une gentille erreur :D ).
+	Après cela il vérifie si la feuille de calcul possède bien le même nombre de colonnes pour chaque ligne.
+	Et pour finir le programme fait le calcul de chaque cellule et les affiches à l'endroit voulu (soit sur la sortie standard ou dans un fichier).
+
+
+
+	ERREURS:
+	Le programme affiche dans la sortie des erreurs, les erreurs pouvant aider l'utilisateur à corriger ses erreurs.
+	Certaines erreurs peuvent empêcher le calcul de la feuille en fermant tout de suite le programme est affichant le contenu de l'erreur (exemple qu'il n'y ait pas le même nombre de colonnes dans chaque ligne).
+	D'autres erreurs permettent quand même d'afficher la feuille de retour et à chaque cellule ayant eu un probleme de laisser l'expression ecrite dedans (exemple "Erreur : cellule l1c1 incorrecte" cette cellule restera avec l'expression "premier" car le programme ne trouve pas de fichier qui se nomme premier).
+
+		
+
+	FONCTIONS DU PROGRAMME:
+	Voici les fonctions qu'admet le programme pour lui permettre de traitrer les feuilles de calcul.
+	– val(cel): Recupère le contenu de cel et la retourne.
+	– lCel(cel): Recupère la ligne de cel et la retourne.
+	– cCel(cel): Recupère la colonne de cel et la retourne.
+	– calcul(formule): Fonction qui analyse la formule et choisit la fonction adéquate pour faire le calcul.
+	– EstNombre(val1): Renvoi 42 si nombre (car réponse universelle ;) et sinon 0.
+	– normalCalcul(): Calcul chaque cellule du fichier et retourne le résultat final. Si une cellule est fausse, retourne la valeur initiale.
+	– inverse(): retourne l’inversion lignes/colonnes de la feuille calculée. Si cellule fausse, retourne la valeur initiale.
+	– recupParams(): Recupère les paramètres donnés en entrée.
+	– main() Permets au shell que toutes les fonctions soient "exécutables", son identificateur doit d'abord être connu par le shell (car la lecture du script se faisant séquentiellement) et aussi c'est la fonction principale :D .
+
+
+
+
+
+
+
+
+DIFFICULTÉS RENCONTRÉES:
+La principale difficulté et le peu de connaissance et de pratique du shell que nous ayons. Et aussi l'enchainement de tous les projets/TP noté/contrôle nous ayant ralenti énormément dans l'approfondissement dans nos recherches concernant le shell.
+
+En lui-même le projet ne possède pas trop de soucis.
+Le souci qui gêne est celui de la performance. En effet comme le programme est fait de façon récursive, avec des appels à d'autres fonctions interne celui-ci perd plus de temps que s'il était itératif.
+
+Pour essayer de remédier à cela nous avons pu tenter de réutiliser les calculs déjà calculer, mais finalement nous perdons plus de temps que si nous recalculons chaque cellule intéressante.
+
+
+
+Le projet possède 5 fichiers d'exemple permettant d'utiliser toutes les fonctions implémentées. (les fichiers feuillent1 et feuille2 possèdent une erreur chacune qui est faite exprès pour montrer le retour de nos erreurs à l'utilisateur.)
+
+
+la part (en pourcentage) de travail de chacun est de 50%
+
+
+

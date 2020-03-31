@@ -1,0 +1,28 @@
+strategy Agressif
+
+choose weapon COUPERET_LASER
+choose protection TABLIER_ARMURE
+choose care HUMUS_NEUTRONIQUE
+add action 0
+
+if life < 100%
+    use protection
+endif
+
+if life < 50%
+    use care
+endif
+if life < 25%
+    move backward 4
+
+if enemyInScope
+    use weapon 9
+else
+    move forward 25
+    if enemyInScope > 75%
+        move forward 10
+    endif
+    if enemyInScope > 50%
+     move forward 5
+     endif
+endif

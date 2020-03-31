@@ -1,0 +1,21 @@
+strategy PicpicErreur
+
+choose weapon Eplusche Moitra
+choose protection Woklier
+choose care Rambo
+add action 10
+
+if life < 100%
+    use protection
+endif
+
+if life < 50%
+    use care
+endif
+
+if enemyInScope
+    use weapon 12
+    move backward 5
+else
+    move forward 5
+endif

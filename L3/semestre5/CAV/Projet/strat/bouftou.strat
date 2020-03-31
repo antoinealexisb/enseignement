@@ -1,0 +1,20 @@
+strategy Bouftou
+
+choose weapon MANDOLINE_SONIQUE
+choose protection TABLIER_ARMURE
+choose care RAMBO
+add action 10
+
+if life < 100%
+    use protection
+endif
+
+if life < 50%
+    use care
+endif
+
+if enemyInScope
+    use weapon 20
+else
+    move forward 5
+endif

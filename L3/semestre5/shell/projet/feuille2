@@ -1,0 +1,7 @@
+0.11:1.2:14:=min(l1c1,l1c3):42
+43:44:45:46:47
+31:=variance(l1c1,l2c3):=ecarttype(l1c1,l2c3):34:35
+41:=mediane(l1c1,l2c4):43:44:=max(l1c5,l2c3)
+feuille:52::54:=lines([l5c1])
+61:62:63:64:65
+

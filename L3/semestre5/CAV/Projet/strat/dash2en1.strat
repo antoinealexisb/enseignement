@@ -1,0 +1,29 @@
+strategy Dash
+
+choose weapon EPLUCHE_MOITROA
+add action 23
+
+if life = 100%
+    move forward 25
+endif
+
+
+if enemyInScope
+    use weapon 48
+else
+    if enemyLife > 99%
+        move forward 25
+    endif
+    if enemyLife > 75%
+        move forward 10
+    endif
+    if enemyLife > 50%
+        move forward 5
+    endif
+    if enemyLife > 40%
+        move forward 1
+    endif
+    if enemyInScope
+        use weapon 10
+    endif
+endif

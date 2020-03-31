@@ -1,0 +1,30 @@
+strategy agresionV2
+
+choose weapon COUPERET_LASER
+choose protection TABLIER_ARMURE
+choose care HUMUS_NEUTRONIQUE
+add action 0
+
+if life < 100%
+    use protection
+endif
+
+if life < 50%
+    use care
+endif
+
+if enemyInScope
+    use weapon 9
+    move backward 5
+else
+    if enemyLife > 99%
+        move forward 25
+    endif
+    if enemyLife > 75%
+        move forward 10
+    endif
+    if enemyLife > 50%
+        move forward 5
+    endif
+    use weapon 2
+endif
